@@ -1,5 +1,5 @@
 import {followers_request} from "./requests/requests.js";
-import {general_errorHandler,specific_errorHandler} from "./error_handler.js"
+import {general_errorHandler,specific_errorHandler} from "./error_handler/handler.js";
 
 
 
