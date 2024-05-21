@@ -1,10 +1,8 @@
-//----------------------------------------------------------------------------------
-//user sin conexion=> message=="failed to fetch"
-//no anda server, lo mismo.
-//prohibir q el user use la app sin internte.
-//cuando tire error de fetch va a ser por mal server si o si.
-//(poner q lo intente mas tarde y listo ya foe)
+import {USER_INFO} from "./main_funcs/2 user_info.js";
 
+//-------------------------- CLASE MANAGER PARA CONTROLAR EL FLUJO DE LA PAG ---------------
+
+let Manager;
 
 class Main_Manager{
     constructor(){
@@ -41,3 +39,16 @@ class Main_Manager{
 
 
 }
+
+function get_Manager(){
+  return Manager;
+}
+
+window.onload=()=>{
+  Manager=new Main_Manager();
+  Manager.start();
+}
+
+
+
+export {get_Manager};
