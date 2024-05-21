@@ -13,28 +13,49 @@ class Main_Manager{
        this.last_cantFoll;
 
        this.uploaded_json;
+
+       this.start();
     }
 
     start(){
       //inicializar todas las variables, poner el ui de user_info etc.
+      this.OLD_FOLLOWERS={};
+      this.NEW_FOLLOWERS={},
+
+      this.last_userId=undefined;
+      this.last_cantFoll=undefined;
+
+      this.uploaded_json=false;
     }
 
     finished_get_json(){
       //marcar q se subio un json
+      this.uploaded_json=true;
     }
 
 
-    finished_user_info(){
+    finished_user_info(user_id,cant_foll){
       //inicar ui de get_followers
+      this.last_userId=user_id;
+      this.last_cantFoll=cant_foll;
     }
 
-    finished_get_followers(){
+    finished_get_followers(new_followers){
       //iniciar ui de descargas
       //tmb se podria guardar en 
 
       //si se subio json:
       //-- iniciar ui de compare_followers
       //-- iniciar funcion de compare_followers
+    }
+
+    finished_compareFollowers(){
+      //por ahora no hace nada. (la main de compare followers se va a encargar de
+      //                        comparar y meter los nombres en el ui)
+    }
+
+    finished_download(){ //(seria si se toco cancel o dale de descargar)
+      //this.start()
     }
 
 
