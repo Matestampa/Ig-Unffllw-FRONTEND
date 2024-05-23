@@ -60,14 +60,14 @@ class Main_Manager{
     
     //Poner pagina en mode de falta de requests
     set_pageStatus_NOMOREREQ(){
-       
+      console.log("NO MORE REQUESTS STATUS FROM MAIN_MANAGER") 
       //Poner ui con cronometro
       //tomar el expire de las cookies para eso
     }
     
     //Poner pagina en mode no disponible (por tema del server)
     set_pageStatus_UNAVAILABLE(){
-      
+      console.log("UNAIVALABLE PAGE STATUS FROM MAIN_MANAGER")
       //Poner un ui q no deje hacer nada
     
     }
@@ -82,6 +82,7 @@ function get_Manager(){
 window.onload=()=>{
   Manager=new Main_Manager();
   Manager.start();
+  console.log(Manager);
 }
 
 
