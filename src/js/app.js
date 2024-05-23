@@ -57,6 +57,20 @@ class Main_Manager{
     finished_download(){ //(seria si se toco cancel o dale de descargar)
       //this.start()
     }
+    
+    //Poner pagina en mode de falta de requests
+    set_pageStatus_NOMOREREQ(){
+       
+      //Poner ui con cronometro
+      //tomar el expire de las cookies para eso
+    }
+    
+    //Poner pagina en mode no disponible (por tema del server)
+    set_pageStatus_UNAVAILABLE(){
+      
+      //Poner un ui q no deje hacer nada
+    
+    }
 
 
 }
