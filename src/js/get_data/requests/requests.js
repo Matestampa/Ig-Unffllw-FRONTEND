@@ -4,9 +4,9 @@ import {GENERAL_ERRORS} from "../error_handler/handler.js";
 
 const BASE_URL=IG_REQUESTS_BASEURL;
 
-const USERINFO_ENDP="/user_info/";
+const USERINFO_ENDP=BASE_URL+"/user_info/";
 
-const FOLLOWERS_ENDP="/nexts";
+const FOLLOWERS_ENDP=BASE_URL+"/nexts";
 
 
 async function userInfo_request(username){
@@ -22,7 +22,7 @@ async function userInfo_request(username){
         json_data=await response.json();
 
         if (response.status==200){
-            return {error:undefined,data:json_data};
+            return {error:undefined,data:json_data.data};
         }
         else{
             return {error:json_data.error,data:undefined};
@@ -48,7 +48,7 @@ async function followers_request(user_id,last_cursor){
         json_data=await response.json();
 
         if (response.status==200){
-            return {error:undefined,data:json_data};
+            return {error:undefined,data:json_data.data};
         }
         else{
             return {error:json_data.error,data:undefined};
@@ -67,7 +67,7 @@ function request_errorHandler(error){
     console.log(error);
     
     //Devolvemos siempre uno de tipo server. Pase lo q pase.
-    return {code:GENERAL_ERRORS.SERVER,message:"There was an error. Try Again"};
+    return {code:GENERAL_ERRORS.SERVER,message:"There was a server error"};
 }
 
 

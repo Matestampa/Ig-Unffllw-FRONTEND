@@ -19,7 +19,7 @@ async function get_userInfo(username){
             if (!error.sub_code){
                 //si aca da true, ponemos el coso para hacer retry.
                 retry=general_errorHandler(error);
-                console.log(retry);
+                console.log(`Retry:${retry}`);
             }
             //si hay, es especifico
             else{
@@ -30,7 +30,6 @@ async function get_userInfo(username){
         else{
             return {user_id:data.user_id,cant_followers:data.cant_followers};
         }
-        attempts++
     }
     while(retry);
 
