@@ -9,8 +9,7 @@ class Main_Manager{
        this.OLD_FOLLOWERS={};
        this.NEW_FOLLOWERS={},
 
-       this.last_userId;
-       this.last_cantFoll;
+       this.lastUser_data={}
 
        this.uploaded_json;
 
@@ -22,8 +21,10 @@ class Main_Manager{
       this.OLD_FOLLOWERS={};
       this.NEW_FOLLOWERS={},
 
-      this.last_userId=undefined;
-      this.last_cantFoll=undefined;
+      this.lastUser_data={
+        user_id:undefined,
+        cant_followers:undefined
+      }
 
       this.uploaded_json=false;
     }
@@ -35,8 +36,11 @@ class Main_Manager{
 
 
     finished_user_info(user_id,cant_foll){
-      this.last_userId=user_id;
-      this.last_cantFoll=cant_foll;
+      this.lastUser_data.user_id=user_id;
+      this.lastUser_data.cant_followers=cant_foll;
+      
+      console.log(`Finished user_info with data:${this.lastUser_data}`)
+      console.log(`Starting get_followers`)
       //inicar ui de get_followers
     }
 
@@ -56,6 +60,10 @@ class Main_Manager{
 
     finished_download(){ //(seria si se toco cancel o dale de descargar)
       //this.start()
+    }
+
+    get_lastUser_data(){
+      return this.lastUser_data;
     }
     
     //Poner pagina en mode de falta de requests
