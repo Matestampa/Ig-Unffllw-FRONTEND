@@ -35,9 +35,9 @@ class Main_Manager{
 
 
     finished_user_info(user_id,cant_foll){
-      //inicar ui de get_followers
       this.last_userId=user_id;
       this.last_cantFoll=cant_foll;
+      //inicar ui de get_followers
     }
 
     finished_get_followers(new_followers){

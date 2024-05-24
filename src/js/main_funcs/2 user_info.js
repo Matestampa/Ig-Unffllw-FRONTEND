@@ -1,3 +1,5 @@
+import {get_Manager} from "../app.js";
+
 import { get_userInfo } from "../get_data/user_info.js";
 
 
@@ -15,14 +17,10 @@ async function main_get_userInfo(){
     
     //Si no hubo errors, y tenemos la data
     if (data){
-        //guardar "user_id" y "cant_followers", para usarlo en la de followers
-        last_userId=data.user_id;
-        last_cantFoll=data.cant_followers;
-
-        //mostrar info ****
-        console.log(last_userId,last_cantFoll);
-
-        //cambiar el escenario para la de followers ****
+        
+        //Pasarle al Main Manager la data.
+        let Main_Manager=get_Manager();
+        Main_Manager.finished_user_info(data.user_id,data.cant_followers);
     }
 }
 
