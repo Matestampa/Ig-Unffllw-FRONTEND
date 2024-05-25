@@ -30,7 +30,7 @@ async function get_followers(user_id,last_cursor){
         }
         else{
             //si no hay return de la data
-            return {followers:data.followers,last_cursor:data.last_cursor};
+            return {followers:data.followers,last_cursor:data.cursor};
         }
     }
 
