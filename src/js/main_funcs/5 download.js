@@ -7,9 +7,9 @@ function setUI_download(){
 
 
 function main_download(new_followers){
-
-    //let {username}=get_Manager().get_lastUser_data()
-    let username="manu";
+    
+    let Manager=get_Manager();
+    let {username}=Manager.get_lastUser_data()
 
     //Crear nombre del json
     let file_name=create_jsonName(username);
@@ -17,17 +17,16 @@ function main_download(new_followers){
     //Crear url para descargar el json
     let file_url=create_jsonUrl(new_followers);
 
-    console.log(file_name,file_url);
-
     //Añadir url y nombre al ui
     let link=document.createElement("a");
     link.innerText="Download";
     link.href=file_url;
     link.download=file_name;
-    
     document.body.appendChild(link);
 
+    Manager.finished_download();
 }
+
 
 function create_jsonUrl(object){
      //Convertir json a string 
@@ -58,20 +57,6 @@ function util_getDateString(){
 
     return `${dia}_${mes}_${year}`;
 }
-
-
-let testObj={
-   1:"manu",
-   2:"yapu",
-   90:"peluk",
-   3:"pavel",
-
-}
-
-window.test=()=>{
-    main_download(testObj);
-}
-
 
 
 const DOWNLOAD={
