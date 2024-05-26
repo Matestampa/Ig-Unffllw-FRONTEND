@@ -24,6 +24,7 @@ class Main_Manager{
       this.NEW_FOLLOWERS={},
 
       this.lastUser_data={
+        username:undefined,
         user_id:undefined,
         cant_followers:undefined
       }
@@ -37,7 +38,8 @@ class Main_Manager{
     }
 
 
-    finished_user_info(user_id,cant_foll){
+    finished_user_info(username,user_id,cant_foll){
+      this.lastUser_data.username=username;
       this.lastUser_data.user_id=user_id;
       this.lastUser_data.cant_followers=cant_foll;
       
