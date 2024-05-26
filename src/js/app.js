@@ -47,12 +47,22 @@ class Main_Manager{
     }
 
     finished_get_followers(new_followers){
+      console.log(`Finished get_followerss`)
+      console.log(`Starting compare_followers OR download`)
+      
+      this.NEW_FOLLOWERS=new_followers;
+      
+      //Si se subio json previo con followers
+      if (this.uploaded_json){
+        //-- iniciar ui de compare_followers
+
+        //-- iniciar funcion de compare_followers
+        COMPARE_FOLLOWERS.MAIN_FUNC(this.OLD_FOLLOWERS,this.NEW_FOLLOWERS);
+      }
+      
       //iniciar ui de descargas
       //tmb se podria guardar en 
 
-      //si se subio json:
-      //-- iniciar ui de compare_followers
-      //-- iniciar funcion de compare_followers
     }
 
     finished_compareFollowers(){
