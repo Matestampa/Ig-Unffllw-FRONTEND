@@ -14,8 +14,12 @@ function main_download(new_followers){
     //Crear nombre del json
     let file_name=create_jsonName(username);
 
-    //Crear url para descargar el json
-    let file_url=create_jsonUrl(new_followers);
+    //Crear formato y url para descargar json
+    let formattedObj={
+        username:username,
+        followers:new_followers
+    };
+    let file_url=create_jsonUrl(formattedObj);
 
     console.log(file_name,file_url);
 
