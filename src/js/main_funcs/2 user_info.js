@@ -20,7 +20,7 @@ async function main_get_userInfo(){
         
         //Pasarle al Main Manager la data.
         let Main_Manager=get_Manager();
-        Main_Manager.finished_user_info(data.user_id,data.cant_followers);
+        Main_Manager.finished_user_info(username,data.user_id,data.cant_followers);
     }
 }
 
