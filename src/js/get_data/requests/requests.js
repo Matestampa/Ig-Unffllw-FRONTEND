@@ -16,7 +16,9 @@ async function userInfo_request(username){
     let response,json_data;
     try{
         response=await fetch(final_url,{
-            method:"GET"
+            method:"GET",
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include'
         })
 
         json_data=await response.json();
@@ -41,7 +43,9 @@ async function followers_request(user_id,last_cursor){
     let response,json_data;
     try{
         response=await fetch(final_url,{
-            method:"GET",
+            method:"POST",
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
             body:JSON.stringify({user_id,last_cursor})
         })
 
