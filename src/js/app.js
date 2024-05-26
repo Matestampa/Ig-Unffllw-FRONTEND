@@ -1,6 +1,7 @@
 import {USER_INFO} from "./main_funcs/2 user_info.js";
 import {GET_FOLLOWERS} from "./main_funcs/3 get_followers.js";
 import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll.js";
+import { DOWNLOAD } from "./main_funcs/5 download.js";
 
 //-------------------------- CLASE MANAGER PARA CONTROLAR EL FLUJO DE LA PAG ---------------
 
