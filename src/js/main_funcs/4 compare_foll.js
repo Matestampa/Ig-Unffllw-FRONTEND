@@ -1,7 +1,5 @@
 import {get_Manager} from "../app.js";
 
-import {OLD_FOLLOWERS,NEW_FOLLOWERS} from "../../test_jsons/fake_followers.js";
-
 
 function setUI_compare_followers(){
 
@@ -22,6 +20,8 @@ function main_compare_followers(old_followers,new_followers){
         console.log("No hay unfollowers")
      }
 
+     get_Manager().finished_compareFollowers();
+
 
 }
 
@@ -39,8 +39,6 @@ function get_lostFoll(old_foll,new_foll){
     return lost_foll;
 }
 
-
-main_compare_followers(OLD_FOLLOWERS,NEW_FOLLOWERS)
 
 const COMPARE_FOLLOWERS={
     SET_UI:setUI_compare_followers,
