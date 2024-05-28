@@ -8,7 +8,6 @@ function setUI_get_json(){
 
 //Seria llamada por un button
 async function main_get_json(event){
-    console.log("hi");
     let file = event.target.files[0];
 
     if (util_checkFile(file)) {
@@ -18,10 +17,9 @@ async function main_get_json(event){
             jsonObj=await util_readJson(file) 
         }
         catch(e){
-            window.alert("Tirar error")
+            window.alert("Mal formato")
         }
         
-        console.log(jsonObj);
 
         if (!util_checkJsonFormat(jsonObj)){
             window.alert("Mal formato")
@@ -80,6 +78,5 @@ const GET_JSON={
     MAIN_FUNC:main_get_json
 }
 
-document.getElementById('fileInput').addEventListener('change',main_get_json);
 
 export {GET_JSON};
