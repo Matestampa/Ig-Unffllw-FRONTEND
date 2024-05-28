@@ -1,3 +1,4 @@
+import { GET_JSON } from "./main_funcs/1 get_json.js";
 import {USER_INFO} from "./main_funcs/2 user_info.js";
 import {GET_FOLLOWERS} from "./main_funcs/3 get_followers.js";
 import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll.js";
@@ -33,9 +34,13 @@ class Main_Manager{
       this.uploaded_json=false;
     }
 
-    finished_get_json(){
-      //marcar q se subio un json
+    finished_get_json(json_data){
+      this.OLD_FOLLOWERS=json_data.followers;
       this.uploaded_json=true;
+
+      console.log("Finished get json");
+
+      //Poner en el ui json_data.username;
     }
 
 
