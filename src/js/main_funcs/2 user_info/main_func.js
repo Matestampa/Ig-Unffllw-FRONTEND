@@ -1,11 +1,6 @@
-import {get_Manager} from "../app.js";
+import {get_Manager} from "../../app.js";
 
-import { get_userInfo } from "../get_data/user_info.js";
-
-
-function setUI_userInfo(){}
-
-
+import { get_userInfo } from "../../get_data/user_info.js";
 
 
 async function main_get_userInfo(){
@@ -24,9 +19,4 @@ async function main_get_userInfo(){
     }
 }
 
-const USER_INFO={
-    SET_UI:setUI_userInfo,
-    MAIN_FUNC:main_get_userInfo,
-}
-
-export{USER_INFO};
+export {main_get_userInfo};
