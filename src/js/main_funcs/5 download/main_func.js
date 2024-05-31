@@ -2,7 +2,7 @@ import { get_Manager } from "../../app.js";
 
 
 
-function main_download(new_followers){
+function main_download(){
     
     let Manager=get_Manager();
     let {username}=Manager.get_lastUser_data()
