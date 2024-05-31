@@ -4,6 +4,7 @@ import {get_Manager} from "../../app.js";
 //Seria llamada por un button
 async function main_get_json(event){
     let file = event.target.files[0];
+    console.log("hi");
 
     if (util_checkFile(file)) {
         
