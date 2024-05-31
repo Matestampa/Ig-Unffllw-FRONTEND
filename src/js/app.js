@@ -61,8 +61,9 @@ class Main_Manager{
       
       //Si se subio json previo con followers
       if (this.uploaded_json){
+        
         //-- iniciar ui de compare_followers
-
+        COMPARE_FOLLOWERS.SET_UI();
         //-- iniciar funcion de compare_followers
         COMPARE_FOLLOWERS.MAIN_FUNC(this.OLD_FOLLOWERS,this.NEW_FOLLOWERS);
       }
