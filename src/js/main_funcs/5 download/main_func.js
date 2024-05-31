@@ -1,9 +1,5 @@
-import { get_Manager } from "../app.js";
+import { get_Manager } from "../../app.js";
 
-
-function setUI_download(){
-
-}
 
 
 function main_download(new_followers){
@@ -62,10 +58,4 @@ function util_getDateString(){
     return `${dia}_${mes}_${year}`;
 }
 
-
-const DOWNLOAD={
-    UI:setUI_download,
-    MAIN_FUNC:main_download
-}
-
-export {DOWNLOAD};
+export {main_download};

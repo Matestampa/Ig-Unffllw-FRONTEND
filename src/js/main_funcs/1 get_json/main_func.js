@@ -1,9 +1,4 @@
-import {get_Manager} from "../app.js";
-
-
-function setUI_get_json(){
-
-}
+import {get_Manager} from "../../app.js";
 
 
 //Seria llamada por un button
@@ -73,10 +68,4 @@ function util_checkJsonFormat(jsonObj){
     return false;
 }
 
-const GET_JSON={
-    UI:setUI_get_json,
-    MAIN_FUNC:main_get_json
-}
-
-
-export {GET_JSON};
+export {main_get_json};
