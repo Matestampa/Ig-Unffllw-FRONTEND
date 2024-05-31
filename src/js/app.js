@@ -1,8 +1,10 @@
-import { GET_JSON } from "./main_funcs/1 get_json";
-import {USER_INFO} from "./main_funcs/2 user_info";
-import {GET_FOLLOWERS} from "./main_funcs/3 get_followers";
-import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll";
-import { DOWNLOAD } from "./main_funcs/5 download";
+import { GET_JSON } from "./main_funcs/1 get_json/index.js";
+import {USER_INFO} from "./main_funcs/2 user_info/index.js";
+import {GET_FOLLOWERS} from "./main_funcs/3 get_followers/index.js";
+import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll/index.js";
+import { DOWNLOAD } from "./main_funcs/5 download/index.js";
+
+import {setUI_initial} from "./ui_general.js";
 
 //-------------------------- CLASE MANAGER PARA CONTROLAR EL FLUJO DE LA PAG ---------------
 
@@ -12,26 +14,22 @@ class Main_Manager{
     constructor(){
        this.OLD_FOLLOWERS={};
        this.NEW_FOLLOWERS={},
-
        this.lastUser_data={}
-
        this.uploaded_json;
+
+       this.mainFuncs_div=document.getElementById("mainFuncs_div")
 
        this.start();
     }
 
     start(){
       //inicializar todas las variables, poner el ui de user_info etc.
-      this.OLD_FOLLOWERS={};
-      this.NEW_FOLLOWERS={},
-
-      this.lastUser_data={
-        username:undefined,
-        user_id:undefined,
-        cant_followers:undefined
-      }
-
-      this.uploaded_json=false;
+      this.___reset_vars();
+      setUI_initial(this.mainFuncs_div);
+      
+      //iniciar UI user_info
+      //iniciar UI get_json
+    
     }
 
     finished_get_json(json_data){
@@ -100,8 +98,21 @@ class Main_Manager{
     
     }
 
+    ___reset_vars(){
+      this.OLD_FOLLOWERS={};
+      this.NEW_FOLLOWERS={},
 
+      this.lastUser_data={
+        username:undefined,
+        user_id:undefined,
+        cant_followers:undefined
+      }
+
+      this.uploaded_json=false;
+    }
 }
+
+
 
 function get_Manager(){
   return Manager;
