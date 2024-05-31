@@ -12,7 +12,13 @@
     <button onclick="test()">test</button>
 
     <div id="mainFuncs_div">
-        <div id="getJson_mainDiv"></div>
+        <div id="getJson_mainDiv">
+            <label for="Input" id="jsonInput-label">
+                Subir archivo JSON
+                <input type="file" id="jsonInput" accept=".json" class="file-input">
+            </label>
+        </div>
+        
         <div id="userInfo_mainDiv"></div>
         <div id="getFoll_mainDiv"></div>
         <div id="afterGetData_mainDiv">

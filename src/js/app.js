@@ -27,8 +27,9 @@ class Main_Manager{
       this.___reset_vars();
       setUI_initial(this.mainFuncs_div);
       
-      //iniciar UI user_info
       //iniciar UI get_json
+      GET_JSON.SET_UI();
+      //iniciar UI user_info
     
     }
 
