@@ -1,6 +1,10 @@
-import {USER_INFO} from "./main_funcs/2 user_info.js";
-import {GET_FOLLOWERS} from "./main_funcs/3 get_followers.js";
-import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll.js";
+import { GET_JSON } from "./main_funcs/1 get_json/index.js";
+import {USER_INFO} from "./main_funcs/2 user_info/index.js";
+import {GET_FOLLOWERS} from "./main_funcs/3 get_followers/index.js";
+import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll/index.js";
+import { DOWNLOAD } from "./main_funcs/5 download/index.js";
+
+import {setUI_initial} from "./ui_general.js";
 
 //-------------------------- CLASE MANAGER PARA CONTROLAR EL FLUJO DE LA PAG ---------------
 
@@ -10,34 +14,37 @@ class Main_Manager{
     constructor(){
        this.OLD_FOLLOWERS={};
        this.NEW_FOLLOWERS={},
-
        this.lastUser_data={}
-
        this.uploaded_json;
+
+       this.mainFuncs_div=document.getElementById("mainFuncs_div")
 
        this.start();
     }
 
     start(){
       //inicializar todas las variables, poner el ui de user_info etc.
-      this.OLD_FOLLOWERS={};
-      this.NEW_FOLLOWERS={},
-
-      this.lastUser_data={
-        user_id:undefined,
-        cant_followers:undefined
-      }
-
-      this.uploaded_json=false;
+      this.___reset_vars();
+      setUI_initial(this.mainFuncs_div);
+      
+      //iniciar UI get_json
+      GET_JSON.SET_UI();
+      //iniciar UI user_info
+    
     }
 
-    finished_get_json(){
-      //marcar q se subio un json
+    finished_get_json(json_data){
+      this.OLD_FOLLOWERS=json_data.followers;
       this.uploaded_json=true;
+
+      console.log("Finished get json");
+
+      //Poner en el ui json_data.username;
     }
 
 
-    finished_user_info(user_id,cant_foll){
+    finished_user_info(username,user_id,cant_foll){
+      this.lastUser_data.username=username;
       this.lastUser_data.user_id=user_id;
       this.lastUser_data.cant_followers=cant_foll;
       
@@ -47,12 +54,22 @@ class Main_Manager{
     }
 
     finished_get_followers(new_followers){
+      console.log(`Finished get_followerss`)
+      console.log(`Starting compare_followers OR download`)
+      
+      this.NEW_FOLLOWERS=new_followers;
+      
+      //Si se subio json previo con followers
+      if (this.uploaded_json){
+        //-- iniciar ui de compare_followers
+
+        //-- iniciar funcion de compare_followers
+        COMPARE_FOLLOWERS.MAIN_FUNC(this.OLD_FOLLOWERS,this.NEW_FOLLOWERS);
+      }
+      
       //iniciar ui de descargas
       //tmb se podria guardar en 
 
-      //si se subio json:
-      //-- iniciar ui de compare_followers
-      //-- iniciar funcion de compare_followers
     }
 
     finished_compareFollowers(){
@@ -82,8 +99,21 @@ class Main_Manager{
     
     }
 
+    ___reset_vars(){
+      this.OLD_FOLLOWERS={};
+      this.NEW_FOLLOWERS={},
 
+      this.lastUser_data={
+        username:undefined,
+        user_id:undefined,
+        cant_followers:undefined
+      }
+
+      this.uploaded_json=false;
+    }
 }
+
+
 
 function get_Manager(){
   return Manager;

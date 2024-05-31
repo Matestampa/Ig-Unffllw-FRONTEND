@@ -1,9 +1,4 @@
-import {get_followers} from "../get_data/followers.js";
-
-
-function setUI_getFollowers(){}
-
-
+import {get_followers} from "../../get_data/followers.js";
 
 
 async function main_get_followers(){
@@ -47,10 +42,4 @@ async function main_get_followers(){
     }
 }
 
-
-const GET_FOLLOWERS={
-    SET_UI:setUI_getFollowers,
-    MAIN_FUNC:main_get_followers
-}
-
-export {GET_FOLLOWERS}
+export {main_get_followers};

@@ -1,9 +1,5 @@
-import {get_Manager} from "../app.js";
+import {get_Manager} from "../../app.js";
 
-
-function setUI_compare_followers(){
-
-}
 
 
 function main_compare_followers(old_followers,new_followers){
@@ -39,10 +35,4 @@ function get_lostFoll(old_foll,new_foll){
     return lost_foll;
 }
 
-
-const COMPARE_FOLLOWERS={
-    SET_UI:setUI_compare_followers,
-    MAIN_FUNC:main_compare_followers
-}
-
-export {COMPARE_FOLLOWERS};
+export {main_compare_followers};
