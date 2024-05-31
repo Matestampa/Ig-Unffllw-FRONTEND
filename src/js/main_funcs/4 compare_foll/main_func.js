@@ -1,4 +1,5 @@
 import {get_Manager} from "../../app.js";
+import { show_lostFoll } from "./ui.js";
 
 
 
@@ -8,11 +9,11 @@ function main_compare_followers(old_followers,new_followers){
 
      //si hay unfollowers, mostrarlos
      if (lost_foll.length>0){
-         console.log("Hay unfollowers")
-         console.log(lost_foll);
+        show_lostFoll(lost_foll);
      }
      
      else{ //si no, mostrar mensaje de que no hay.
+        show_lostFoll(lost_foll);
         console.log("No hay unfollowers")
      }
 
@@ -34,5 +35,6 @@ function get_lostFoll(old_foll,new_foll){
 
     return lost_foll;
 }
+
 
 export {main_compare_followers};
