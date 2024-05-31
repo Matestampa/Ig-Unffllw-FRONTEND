@@ -69,6 +69,7 @@ class Main_Manager{
       }
       
       //iniciar ui de descargas
+      DOWNLOAD.SET_UI();
       //tmb se podria guardar en 
 
     }
@@ -106,7 +107,7 @@ class Main_Manager{
 
     ___reset_vars(){
       this.OLD_FOLLOWERS={};
-      this.NEW_FOLLOWERS={}
+      this.NEW_FOLLOWERS={};
 
       this.lastUser_data={
         username:undefined,
