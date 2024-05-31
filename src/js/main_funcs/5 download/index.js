@@ -3,7 +3,7 @@ import {main_download} from "./main_func.js";
 
 
 const DOWNLOAD={
-    UI:setUI_download,
+    SET_UI:setUI_download,
     MAIN_FUNC:main_download
 }
 
