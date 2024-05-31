@@ -13,7 +13,7 @@ let Manager;
 class Main_Manager{
     constructor(){
        this.OLD_FOLLOWERS={};
-       this.NEW_FOLLOWERS={},
+       this.NEW_FOLLOWERS={}
        this.lastUser_data={}
        this.uploaded_json;
 
@@ -85,6 +85,10 @@ class Main_Manager{
     get_lastUser_data(){
       return this.lastUser_data;
     }
+
+    get_newFollowers(){
+      return this.NEW_FOLLOWERS;
+    }
     
     //Poner pagina en mode de falta de requests
     set_pageStatus_NOMOREREQ(){
@@ -102,7 +106,7 @@ class Main_Manager{
 
     ___reset_vars(){
       this.OLD_FOLLOWERS={};
-      this.NEW_FOLLOWERS={},
+      this.NEW_FOLLOWERS={}
 
       this.lastUser_data={
         username:undefined,
@@ -123,7 +127,6 @@ function get_Manager(){
 window.onload=()=>{
   Manager=new Main_Manager();
   Manager.start();
-  console.log(Manager);
 }
 
 
