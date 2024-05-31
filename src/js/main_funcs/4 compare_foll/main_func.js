@@ -5,9 +5,7 @@ import { show_lostFoll } from "./ui.js";
 
 function main_compare_followers(old_followers,new_followers){
      //llamar a func que compara posta
-     //let lost_foll=get_lostFoll(old_followers,new_followers);
-
-     let lost_foll=["manu","yapu","tute","trax"]
+     let lost_foll=get_lostFoll(old_followers,new_followers);
 
      //si hay unfollowers, mostrarlos
      if (lost_foll.length>0){
@@ -38,6 +36,5 @@ function get_lostFoll(old_foll,new_foll){
     return lost_foll;
 }
 
-//main_compare_followers();
 
 export {main_compare_followers};
