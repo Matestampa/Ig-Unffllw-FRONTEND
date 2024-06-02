@@ -1,5 +1,6 @@
 import {get_followers} from "../../get_data/followers.js";
-import { LOADING } from "./ui.js";
+import { LOADING,removeUI_getFollowers } from "./ui.js";
+import { get_sharedButton } from "../ui_shared.js";
 
 
 async function main_get_followers(){
@@ -16,8 +17,13 @@ async function main_get_followers(){
 
     let ok=true;
 
-    //Hacer bucle
+    //--------- Hacer bucle para traer data --------
+    
+    //cosas de UI
     LOADING.start();
+    get_sharedButton().disable();
+    
+    //Traer data
     do{ 
         //Traer data
         let data=await get_followers(user_id,last_cursor)
@@ -31,16 +37,20 @@ async function main_get_followers(){
         //Actualizar last_cursor
         last_cursor=data.last_cursor;
     
-        //calcular porcentaje segun foll traidos, y last_cantFoll,  y actualizar barra.
+        //Obtener cants para actualizar progress bar.
         partialBringed_foll=Object.keys(data.followers).lenght;
         totalBringed_foll+=partialBringed_foll;
         
+        //actualizar progress bar
         LOADING.update(totalBringed_foll,cant_followers);
     }
+    
     //Mientras la cant de traidos sea menor a la cantidad actual q tiene.
     while(totalBringed_foll<cant_followers)
     
+    //cosas de UI
     LOADING.finish();
+    get_sharedButton.enable();
 
     if (ok){
         MainManager.finished_get_followers(NEW_FOLLOWERS);

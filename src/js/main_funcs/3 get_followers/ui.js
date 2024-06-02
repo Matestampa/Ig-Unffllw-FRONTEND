@@ -1,6 +1,29 @@
-function setUI_getFollowers(){}
+import {get_sharedButton} from "../ui_shared.js";
+import { main_get_followers } from "./main_func.js";
+
+function setUI_getFollowers(){
+    let HTML=`<div style="display: none" class="loading-container" id="loading_container">
+                <div class="loading-text">Cargando</div>
+                <div class="spinner"></div>
+              </div>
+              <div id="progressBar_container">
+                 <div id="progress_bar">Hola</div>
+              </div>`;
+    
+    //Cambiar el texto y callback del shared button, q ya uso "user_info"
+    let sharedButton=get_sharedButton();
+    sharedButton.change_text("Get Followers");
+    sharedButton.change_callback(main_get_followers);
+    
+    //Meter html de la func
+    let mainDiv=document.getElementById("getFoll_mainDiv");
+    mainDiv.innerHTML=HTML;
+}
 
 
+function removeUI_getFollowers(){
+    document.getElementById("progressBar_container").innerHTML="";
+}
 
 //---------------------------- Loading mientras se trae la data ---------------
 
@@ -67,4 +90,4 @@ function new_progressBar(progressBar_elem){
 
 //-------------------------------------------------------------------------------------
 
-export {setUI_getFollowers,LOADING};
+export {setUI_getFollowers,LOADING,removeUI_getFollowers};
