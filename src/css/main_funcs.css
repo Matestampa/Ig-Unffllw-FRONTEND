@@ -23,6 +23,27 @@
 
 /*------------------- GET_FOLLOWERS ----------------------------------------*/
 
+/*############ barra de progreso ########*/ 
+#progressBar_container{
+  width: 80%;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+#progress_bar{
+  height: 30px;
+  width: 0; /* Start with width 0 */
+  max-width: 100%; /* Ensure it doesn't exceed the container's width */
+  background-color: #0099ff;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 25px 0 0 25px;
+  transition: width 0.5s ease-in-out;
+}
+
+/*###################################*/
 
 /*------------------- COMPARE_FOLLOWERS ----------------------------------------*/
 

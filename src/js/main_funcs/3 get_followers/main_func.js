@@ -1,4 +1,5 @@
 import {get_followers} from "../../get_data/followers.js";
+import { LOADING } from "./ui.js";
 
 
 async function main_get_followers(){
@@ -14,7 +15,9 @@ async function main_get_followers(){
     let last_cursor;
 
     let ok=true;
+
     //Hacer bucle
+    LOADING.start();
     do{ 
         //Traer data
         let data=await get_followers(user_id,last_cursor)
@@ -29,14 +32,16 @@ async function main_get_followers(){
         last_cursor=data.last_cursor;
     
         //calcular porcentaje segun foll traidos, y last_cantFoll,  y actualizar barra.
-        partialBringed_foll=Object.keys(data.followers).length;
+        partialBringed_foll=Object.keys(data.followers).lenght;
         totalBringed_foll+=partialBringed_foll;
         
-        //update_progressBar(totalBringed_foll) ****
+        LOADING.update(totalBringed_foll,cant_followers);
     }
     //Mientras la cant de traidos sea menor a la cantidad actual q tiene.
     while(totalBringed_foll<cant_followers)
     
+    LOADING.finish();
+
     if (ok){
         MainManager.finished_get_followers(NEW_FOLLOWERS);
     }
