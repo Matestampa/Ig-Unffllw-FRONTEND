@@ -9,4 +9,14 @@ function setUI_userInfo(){
       shared_button.change_callback(main_get_userInfo);
 }
 
-export {setUI_userInfo};
+function show_userInfo(username,cant_followers){
+     
+      let userInfo_space=document.getElementById("showUserInfo");
+
+      let text=`User @${username} with ${cant_followers} followers`;
+
+      userInfo_space.innerText=text;
+
+}
+
+export {setUI_userInfo,show_userInfo};

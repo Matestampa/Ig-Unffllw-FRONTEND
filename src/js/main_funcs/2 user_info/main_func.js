@@ -20,6 +20,9 @@ async function main_get_userInfo(){
     //Si no hubo errors, y tenemos la data
     if (data){
         
+        //Mostrar data
+        show_userInfo(username,data.cant_followers);
+
         //Pasarle al Main Manager la data.
         let Main_Manager=get_Manager();
         Main_Manager.finished_user_info(username,data.user_id,data.cant_followers);
