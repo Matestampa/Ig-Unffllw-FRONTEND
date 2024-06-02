@@ -52,7 +52,9 @@ class Main_Manager{
       
       console.log(`Finished user_info with data:${this.lastUser_data}`)
       console.log(`Starting get_followers`)
+      
       //inicar ui de get_followers
+      GET_FOLLOWERS.SET_UI();
     }
 
     finished_get_followers(new_followers){
