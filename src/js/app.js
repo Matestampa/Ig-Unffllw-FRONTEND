@@ -41,6 +41,7 @@ class Main_Manager{
       console.log("Finished get json");
 
       //Poner en el ui json_data.username;
+      USER_INFO.SET_UI(json_data.username);
     }
 
 
