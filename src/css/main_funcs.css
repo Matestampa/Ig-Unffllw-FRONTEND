@@ -1,0 +1,63 @@
+/*-----------------------   GET JSON  ------------------------------*/
+
+/*Texto con indicaciones de subur json*/
+#jsonInput-label{
+
+}
+
+/*Input para subir json*/
+#jsonInput{  
+
+}
+
+/*------------------- USER_INFO ----------------------------------------*/
+
+
+/*------------------- GET_FOLLOWERS ----------------------------------------*/
+
+
+/*------------------- COMPARE_FOLLOWERS ----------------------------------------*/
+
+/*Texto p para mostrar cant de unfollowers*/
+#unfollowers_cant{
+    font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/*Lista con unfollowers*/
+#unfollowers_list{
+    padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-height: 300px;
+  overflow-y: auto;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#unfollowers_list li{
+    font-size: 16px;
+  margin: 5px 0;
+}
+
+
+/*------------------- DOWNLOAD ----------------------------------------*/
+
+/*Button para descargar el json (por ahora tiene el texto adentro)*/
+#download_button{
+  width: 100px;
+  height: 100px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+

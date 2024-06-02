@@ -1,15 +1,13 @@
-import {get_followers} from "../get_data/followers.js";
-
-
-function setUI_getFollowers(){}
-
-
+import {get_followers} from "../../get_data/followers.js";
 
 
 async function main_get_followers(){
     //Tomar data de la request de lo de user_info
-    let user_id=last_userId;
-    let cant_foll=last_cantFoll;
+    let MainManager=get_Manager();
+    let {user_id,cant_followers}=MainManager.get_lastUser_data();
+
+    //
+    let NEW_FOLLOWERS={};
     
     //Traer followers haciendo todas las requests
     let totalBringed_foll,partialBringed_foll; //foll traidos en total, y por request
@@ -26,6 +24,9 @@ async function main_get_followers(){
 
         //Ir actaulizando los NEW_FOLLOWERS.
         NEW_FOLLOWERS={...NEW_FOLLOWERS,...data.followers};
+
+        //Actualizar last_cursor
+        last_cursor=data.last_cursor;
     
         //calcular porcentaje segun foll traidos, y last_cantFoll,  y actualizar barra.
         partialBringed_foll=Object.keys(data.followers).length;
@@ -34,19 +35,11 @@ async function main_get_followers(){
         //update_progressBar(totalBringed_foll) ****
     }
     //Mientras la cant de traidos sea menor a la cantidad actual q tiene.
-    while(totalBringed_foll<cant_foll)
+    while(totalBringed_foll<cant_followers)
     
-    if (ok){ 
-       //Llamar a funcion q haga comparacion de followers. ****
-       //(si es que se subio previamente un JSON)
-       //si no mandar directo lo del JSON 
+    if (ok){
+        MainManager.finished_get_followers(NEW_FOLLOWERS);
     }
 }
 
-
-const GET_FOLLOWERS={
-    SET_UI:setUI_getFollowers,
-    MAIN_FUNC:main_get_followers
-}
-
-export {GET_FOLLOWERS}
+export {main_get_followers};
