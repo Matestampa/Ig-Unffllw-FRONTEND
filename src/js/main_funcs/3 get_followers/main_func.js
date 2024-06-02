@@ -1,3 +1,4 @@
+import { get_Manager } from "../../app.js";
 import {get_followers} from "../../get_data/followers.js";
 import { LOADING,removeUI_getFollowers } from "./ui.js";
 import { get_sharedButton } from "../ui_shared.js";
@@ -12,7 +13,8 @@ async function main_get_followers(){
     let NEW_FOLLOWERS={};
     
     //Traer followers haciendo todas las requests
-    let totalBringed_foll,partialBringed_foll; //foll traidos en total, y por request
+    let totalBringed_foll=0;
+    let partialBringed_foll=0; //foll traidos en total, y por request
     let last_cursor;
 
     let ok=true;
@@ -38,11 +40,13 @@ async function main_get_followers(){
         last_cursor=data.last_cursor;
     
         //Obtener cants para actualizar progress bar.
-        partialBringed_foll=Object.keys(data.followers).lenght;
+        partialBringed_foll=Object.keys(data.followers).length;
         totalBringed_foll+=partialBringed_foll;
         
         //actualizar progress bar
         LOADING.update(totalBringed_foll,cant_followers);
+
+        await sleep(500);
     }
     
     //Mientras la cant de traidos sea menor a la cantidad actual q tiene.
@@ -50,11 +54,15 @@ async function main_get_followers(){
     
     //cosas de UI
     LOADING.finish();
-    get_sharedButton.enable();
+    get_sharedButton().enable();
 
     if (ok){
         MainManager.finished_get_followers(NEW_FOLLOWERS);
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export {main_get_followers};

@@ -38,9 +38,9 @@ function start_loading(){
 }
 
 function update_loadingPerc(actual,total){
-    
+    console.log(actual,total);
     //sacar porcentaje
-    let perc=parseInt(actual*100 / total);
+    let perc=parseInt(actual *100 / total);
     curr_progressBar.update_progress(perc);
 
 }
