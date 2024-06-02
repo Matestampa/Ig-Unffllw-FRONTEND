@@ -8,7 +8,7 @@ let curr_progressBar;
 
 function start_loading(){
     //Poner texto y animacion
-    console.log("cargando followers")
+    document.getElementById("loading_container").style.display="flex";
     //Iniciar una progress bar
     let elem=document.getElementById("progress_bar")
     curr_progressBar=getEmpty_progressBar(elem);
@@ -24,7 +24,7 @@ function update_loadingPerc(actual,total){
 
 function finish_loading(){
     //Borrar texto y animacion
-    console.log("dejo de cargar followers")
+    document.getElementById("loading_container").style.display="none";
     //borrar o reiniciar progress bar
     curr_progressBar.update_progress(0);
 }
