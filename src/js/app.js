@@ -127,10 +127,10 @@ function get_Manager(){
   return Manager;
 }
 
-window.onload=()=>{
+/*window.onload=()=>{
   Manager=new Main_Manager();
   Manager.start();
-}
+}*/
 
 
 
