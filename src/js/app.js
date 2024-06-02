@@ -30,6 +30,7 @@ class Main_Manager{
       //iniciar UI get_json
       GET_JSON.SET_UI();
       //iniciar UI user_info
+      USER_INFO.SET_UI();
     
     }
 
