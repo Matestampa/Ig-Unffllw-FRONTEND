@@ -30,6 +30,7 @@ class Main_Manager{
       //iniciar UI get_json
       GET_JSON.SET_UI();
       //iniciar UI user_info
+      USER_INFO.SET_UI();
     
     }
 
@@ -40,6 +41,7 @@ class Main_Manager{
       console.log("Finished get json");
 
       //Poner en el ui json_data.username;
+      USER_INFO.SET_UI(json_data.username);
     }
 
 

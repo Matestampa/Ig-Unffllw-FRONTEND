@@ -43,8 +43,8 @@ function create_sharedButton(buttonElem){
     return SharedButton;
 }
 
-function get_SharedButton(){
+function get_sharedButton(){
     return SharedButton;
 }
 
-export {create_sharedButton,get_SharedButton};
+export {create_sharedButton,get_sharedButton};
