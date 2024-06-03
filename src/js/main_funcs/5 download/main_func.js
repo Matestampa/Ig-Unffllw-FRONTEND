@@ -1,15 +1,12 @@
-import { get_Manager } from "../app.js";
+import { get_Manager } from "../../app.js";
 
 
-function setUI_download(){
 
-}
-
-
-function main_download(new_followers){
+function main_download(){
     
     let Manager=get_Manager();
     let {username}=Manager.get_lastUser_data()
+    let new_followers=Manager.get_newFollowers();
 
     //Crear nombre del json
     let file_name=create_jsonName(username);
@@ -23,10 +20,9 @@ function main_download(new_followers){
 
     //Añadir url y nombre al ui
     let link=document.createElement("a");
-    link.innerText="Download";
     link.href=file_url;
     link.download=file_name;
-    document.body.appendChild(link);
+    link.click();
 
     Manager.finished_download();
 }
@@ -62,10 +58,4 @@ function util_getDateString(){
     return `${dia}_${mes}_${year}`;
 }
 
-
-const DOWNLOAD={
-    UI:setUI_download,
-    MAIN_FUNC:main_download
-}
-
-export {DOWNLOAD};
+export {main_download};

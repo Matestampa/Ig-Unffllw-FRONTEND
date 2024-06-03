@@ -1,14 +1,10 @@
-import {get_Manager} from "../app.js";
-
-
-function setUI_get_json(){
-
-}
+import {get_Manager} from "../../app.js";
 
 
 //Seria llamada por un button
 async function main_get_json(event){
     let file = event.target.files[0];
+    console.log("hi");
 
     if (util_checkFile(file)) {
         
@@ -73,10 +69,4 @@ function util_checkJsonFormat(jsonObj){
     return false;
 }
 
-const GET_JSON={
-    UI:setUI_get_json,
-    MAIN_FUNC:main_get_json
-}
-
-
-export {GET_JSON};
+export {main_get_json};

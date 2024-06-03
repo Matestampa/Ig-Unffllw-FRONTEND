@@ -1,8 +1,10 @@
-import { GET_JSON } from "./main_funcs/1 get_json.js";
-import {USER_INFO} from "./main_funcs/2 user_info.js";
-import {GET_FOLLOWERS} from "./main_funcs/3 get_followers.js";
-import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll.js";
-import { DOWNLOAD } from "./main_funcs/5 download.js";
+import { GET_JSON } from "./main_funcs/1 get_json/index.js";
+import {USER_INFO} from "./main_funcs/2 user_info/index.js";
+import {GET_FOLLOWERS} from "./main_funcs/3 get_followers/index.js";
+import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll/index.js";
+import { DOWNLOAD } from "./main_funcs/5 download/index.js";
+
+import {setUI_initial} from "./ui_general.js";
 
 //-------------------------- CLASE MANAGER PARA CONTROLAR EL FLUJO DE LA PAG ---------------
 
@@ -11,27 +13,25 @@ let Manager;
 class Main_Manager{
     constructor(){
        this.OLD_FOLLOWERS={};
-       this.NEW_FOLLOWERS={},
-
+       this.NEW_FOLLOWERS={}
        this.lastUser_data={}
-
        this.uploaded_json;
+
+       this.mainFuncs_div=document.getElementById("mainFuncs_div")
 
        this.start();
     }
 
     start(){
       //inicializar todas las variables, poner el ui de user_info etc.
-      this.OLD_FOLLOWERS={};
-      this.NEW_FOLLOWERS={},
-
-      this.lastUser_data={
-        username:undefined,
-        user_id:undefined,
-        cant_followers:undefined
-      }
-
-      this.uploaded_json=false;
+      this.___reset_vars();
+      setUI_initial(this.mainFuncs_div);
+      
+      //iniciar UI get_json
+      GET_JSON.SET_UI();
+      //iniciar UI user_info
+      USER_INFO.SET_UI();
+    
     }
 
     finished_get_json(json_data){
@@ -41,6 +41,7 @@ class Main_Manager{
       console.log("Finished get json");
 
       //Poner en el ui json_data.username;
+      USER_INFO.SET_UI(json_data.username);
     }
 
 
@@ -51,7 +52,9 @@ class Main_Manager{
       
       console.log(`Finished user_info with data:${this.lastUser_data}`)
       console.log(`Starting get_followers`)
+      
       //inicar ui de get_followers
+      GET_FOLLOWERS.SET_UI();
     }
 
     finished_get_followers(new_followers){
@@ -62,13 +65,15 @@ class Main_Manager{
       
       //Si se subio json previo con followers
       if (this.uploaded_json){
+        
         //-- iniciar ui de compare_followers
-
+        COMPARE_FOLLOWERS.SET_UI();
         //-- iniciar funcion de compare_followers
         COMPARE_FOLLOWERS.MAIN_FUNC(this.OLD_FOLLOWERS,this.NEW_FOLLOWERS);
       }
       
       //iniciar ui de descargas
+      DOWNLOAD.SET_UI();
       //tmb se podria guardar en 
 
     }
@@ -85,6 +90,10 @@ class Main_Manager{
     get_lastUser_data(){
       return this.lastUser_data;
     }
+
+    get_newFollowers(){
+      return this.NEW_FOLLOWERS;
+    }
     
     //Poner pagina en mode de falta de requests
     set_pageStatus_NOMOREREQ(){
@@ -100,8 +109,21 @@ class Main_Manager{
     
     }
 
+    ___reset_vars(){
+      this.OLD_FOLLOWERS={};
+      this.NEW_FOLLOWERS={};
 
+      this.lastUser_data={
+        username:undefined,
+        user_id:undefined,
+        cant_followers:undefined
+      }
+
+      this.uploaded_json=false;
+    }
 }
+
+
 
 function get_Manager(){
   return Manager;
@@ -110,7 +132,6 @@ function get_Manager(){
 window.onload=()=>{
   Manager=new Main_Manager();
   Manager.start();
-  console.log(Manager);
 }
 
 

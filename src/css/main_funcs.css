@@ -1,0 +1,120 @@
+/*-----------------------   GET JSON  ------------------------------*/
+
+/*Texto con indicaciones de subur json*/
+#jsonInput-label{
+
+}
+
+/*Input para subir json*/
+#jsonInput{  
+
+}
+
+/*------------------- USER_INFO ----------------------------------------*/
+
+#showUserInfo_cont{}
+
+#showUserInfo{}
+
+
+#username_input{}
+
+#getData_button{}
+
+/*------------------- GET_FOLLOWERS ----------------------------------------*/
+
+/*############ barra de progreso ########*/ 
+#progressBar_container{
+  width: 80%;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+#progress_bar{
+  height: 30px;
+  width: 0; /* Start with width 0 */
+  max-width: 100%; /* Ensure it doesn't exceed the container's width */
+  background-color: #0099ff;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 25px 0 0 25px;
+  transition: width 0.5s ease-in-out;
+}
+/*###################################*/
+
+/*########### mostrar q esta cragando ########### */
+.loading-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/*texto "cargando" */
+.loading-text {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/*coso q gira */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3; /* Light grey */
+  border-top: 3px solid #007bff; /* Blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*------------------- COMPARE_FOLLOWERS ----------------------------------------*/
+
+/*Texto p para mostrar cant de unfollowers*/
+#unfollowers_cant{
+    font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/*Lista con unfollowers*/
+#unfollowers_list{
+    padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-height: 300px;
+  overflow-y: auto;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#unfollowers_list li{
+    font-size: 16px;
+  margin: 5px 0;
+}
+
+
+/*------------------- DOWNLOAD ----------------------------------------*/
+
+/*Button para descargar el json (por ahora tiene el texto adentro)*/
+#download_button{
+  width: 100px;
+  height: 100px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
