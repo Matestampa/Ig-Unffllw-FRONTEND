@@ -47,4 +47,26 @@ function get_sharedButton(){
     return SharedButton;
 }
 
-export {create_sharedButton,get_sharedButton};
+
+//------------------------------- Shared loading ---------------------------------
+
+let loadingAnim_elem=`<div style="display: none" class="loading-container" id="loading_container">
+                            <div class="loading-text">Cargando</div>
+                            <div class="spinner"></div>
+                      </div>`;
+
+function start_loadingAnim(){
+  document.getElementById("loading_container").style.display="flex";
+}
+
+function finsish_loadingAnim(){
+    document.getElementById("loading_container").style.display="none";
+}
+
+const LOADING_ANIM={
+    element:loadingAnim_elem,
+    start:start_loadingAnim,
+    finsish:finsish_loadingAnim
+}
+
+export {create_sharedButton,get_sharedButton,LOADING_ANIM};
