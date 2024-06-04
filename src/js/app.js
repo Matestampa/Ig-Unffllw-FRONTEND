@@ -4,7 +4,7 @@ import {GET_FOLLOWERS} from "./main_funcs/3 get_followers/index.js";
 import {COMPARE_FOLLOWERS} from "./main_funcs/4 compare_foll/index.js";
 import { DOWNLOAD } from "./main_funcs/5 download/index.js";
 
-import {setUI_initial} from "./ui_general.js";
+import {setUI_initial,setUI_retry} from "./ui_general.js";
 
 //-------------------------- CLASE MANAGER PARA CONTROLAR EL FLUJO DE LA PAG ---------------
 
@@ -72,9 +72,9 @@ class Main_Manager{
         COMPARE_FOLLOWERS.MAIN_FUNC(this.OLD_FOLLOWERS,this.NEW_FOLLOWERS);
       }
       
-      //iniciar ui de descargas
+      //iniciar ui de descargas y de retry
       DOWNLOAD.SET_UI();
-      //tmb se podria guardar en 
+      setUI_retry();
 
     }
 
@@ -85,6 +85,10 @@ class Main_Manager{
 
     finished_download(){ //(seria si se toco cancel o dale de descargar)
       //this.start()
+    }
+
+    retry(){
+      this.start();
     }
 
     get_lastUser_data(){
