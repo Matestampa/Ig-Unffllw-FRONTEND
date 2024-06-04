@@ -1,11 +1,12 @@
-import {create_sharedButton} from "../ui_shared.js";
+import {create_sharedButton,LOADING_ANIM} from "../ui_shared.js";
 import { main_get_userInfo } from "./main_func.js";
 
 function setUI_userInfo(username){
       
       let HTML=`<div id="showUserInfo_cont">
-                <p id="showUserInfo"></p>
+                    <p id="showUserInfo"></p>
                 </div>
+                ${LOADING_ANIM.element}
                 <input type="text" id="username_input" placeholder="Enter ig username">
                 <button id="getData_button">user_info</button>`
       document.getElementById("userInfo_mainDiv").innerHTML=HTML;
@@ -27,4 +28,21 @@ function show_userInfo(username,cant_followers){
 
 }
 
-export {setUI_userInfo,show_userInfo};
+//---------------------- LOADING mientras trae la data ------------------------
+
+function start_loading(){
+  LOADING_ANIM.start();
+}
+
+function finsish_loading(){
+  LOADING_ANIM.finsish();
+}
+
+const LOADING={
+      start:start_loading,
+      finish:finsish_loading
+}
+
+//----------------------------------------------------------------------------
+
+export {setUI_userInfo,show_userInfo,LOADING};
