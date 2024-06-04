@@ -51,7 +51,7 @@ function get_sharedButton(){
 //------------------------------- Shared loading ---------------------------------
 
 let loadingAnim_elem=`<div style="display: none" class="loading-container" id="loading_container">
-                            <div class="loading-text">Cargando</div>
+                            <div class="loading-text">Loading</div>
                             <div class="spinner"></div>
                       </div>`;
 
