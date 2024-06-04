@@ -1,11 +1,8 @@
-import {get_sharedButton} from "../ui_shared.js";
+import {get_sharedButton,LOADING_ANIM} from "../ui_shared.js";
 import { main_get_followers } from "./main_func.js";
 
 function setUI_getFollowers(){
-    let HTML=`<div style="display: none" class="loading-container" id="loading_container">
-                <div class="loading-text">Cargando</div>
-                <div class="spinner"></div>
-              </div>
+    let HTML=`${LOADING_ANIM.element}
               <div id="progressBar_container">
                  <div id="progress_bar">Hola</div>
               </div>`;
@@ -31,7 +28,7 @@ let curr_progressBar;
 
 function start_loading(){
     //Poner texto y animacion
-    document.getElementById("loading_container").style.display="flex";
+    LOADING_ANIM.start();
     //Iniciar una progress bar
     let elem=document.getElementById("progress_bar")
     curr_progressBar=getEmpty_progressBar(elem);
@@ -47,7 +44,7 @@ function update_loadingPerc(actual,total){
 
 function finish_loading(){
     //Borrar texto y animacion
-    document.getElementById("loading_container").style.display="none";
+    LOADING_ANIM.finsish();
     //borrar o reiniciar progress bar
     curr_progressBar.update_progress(0);
 }
