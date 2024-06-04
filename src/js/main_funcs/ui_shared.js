@@ -50,6 +50,11 @@ function get_sharedButton(){
 
 //------------------------------- Shared loading ---------------------------------
 
+let loadingAnim_elem=`<div style="display: none" class="loading-container" id="loading_container">
+                            <div class="loading-text">Cargando</div>
+                            <div class="spinner"></div>
+                      </div>`;
+
 function start_loadingAnim(){
   document.getElementById("loading_container").style.display="flex";
 }
@@ -59,6 +64,7 @@ function finsish_loadingAnim(){
 }
 
 const LOADING_ANIM={
+    element:loadingAnim_elem,
     start:start_loadingAnim,
     finsish:finsish_loadingAnim
 }
