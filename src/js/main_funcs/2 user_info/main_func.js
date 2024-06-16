@@ -4,7 +4,7 @@ import { get_userInfo } from "../../get_data/user_info.js";
 
 import { get_sharedButton } from "../ui_shared.js";
 
-import { show_userInfo } from "./ui.js";
+import { show_userInfo , LOADING} from "./ui.js";
 
 
 async function main_get_userInfo(){
@@ -14,9 +14,12 @@ async function main_get_userInfo(){
     let shared_button=get_sharedButton();
     
     //Traer data
+    LOADING.start();
     shared_button.disable();
     
     let data=await get_userInfo(username);
+
+    LOADING.finish();
     shared_button.enable();
     
     //Si no hubo errors, y tenemos la data
