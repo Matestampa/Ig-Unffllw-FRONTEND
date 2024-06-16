@@ -36,6 +36,7 @@ function general_errorHandler(error){
 //-----------------------------------------------------------------------------------
 
 const SPECIFIC_ERRORS={
+    ACCOUNT_NOTEXIST:"ACCOUNT_NOTEXIST",
     PRIVATE_ACCOUNT:"PRIVATE_ACCOUNT",
     FOLL_EXCESS:"FOLL_EXCESS",
     NOMORE_REQ:"NOMORE_REQ",
@@ -48,7 +49,8 @@ function specific_errorHandler(error){
      let errorCode=error.sub_code;
      let errorMessage=error.message;
 
-     if (errorCode==SPECIFIC_ERRORS.PRIVATE_ACCOUNT ||
+     if (errorCode==SPECIFIC_ERRORS.ACCOUNT_NOTEXIST ||
+         errorCode==SPECIFIC_ERRORS.PRIVATE_ACCOUNT ||
          errorCode==SPECIFIC_ERRORS.FOLL_EXCESS){
          
          AFTER_ERR_FUNCS.alert_and_giveRetry(errorMessage);
