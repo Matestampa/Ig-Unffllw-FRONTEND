@@ -1,9 +1,9 @@
 
 
-const MODE="DEV";
+const MODE="PROD";
 
 const IG_REQUESTS_URLS={
-    PROD:"amazon nos se que poronga/followers",
+    PROD:"https://b90uc7s5t7.execute-api.us-east-2.amazonaws.com/followers",
     DEV:"http://localhost:3000/followers"
 }
 
